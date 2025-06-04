@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import { format, isSameDay } from "date-fns";
+import { Loader } from "lucide-react";
 
 const DynamicWeatherGraph = dynamic(
   () =>
@@ -214,10 +215,13 @@ const Dashboard = () => {
             </PopoverContent>
           </Popover>
         </div>
-
-        <div className="cursor-pointer">
-          <Button className="cursor-pointer" onClick={fetchWeatherData}>
-            Fetch Weather
+        <div>
+          <Button
+            className="cursor-pointe bg-gray-700 text-white"
+            onClick={fetchWeatherData}
+          >
+            {loading && <Loader className="animate-spin mr-2" />}
+            <span>Fetch Weather</span>
           </Button>
         </div>
       </div>
